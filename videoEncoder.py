@@ -8,7 +8,7 @@ if (filepath[1] == "\"" and filepath[-1] == "\""):
 print (filepath)
 
 startNumStr = filepath[-8:-4]
-startNum = int(startNumStr)
+startNum = str(int(startNumStr))
 
 if (startNum > -1):
 	if (filepath[-4:] == ".png" or filepath[-4:] == ".jpg"):
@@ -16,10 +16,7 @@ if (startNum > -1):
 			filename = filepath[:-8]+"%04d.png"
 		else:
 			filename = filepath[:-8]+"%04d.jpg"
-		print (filepath[:-8])
-		sleep(5)
 		subprocess.call(["ffmpeg","-f","image2","-r","12","-start_number",startNum,"-i",filename,"-vcodec","libx264",filepath[:-8]+".mp4", "-y"])
-                sleep(5)
 		print ("Conversion Completed Successfully! Enjoy your Video :D")
 		sleep(5)
 	else:
