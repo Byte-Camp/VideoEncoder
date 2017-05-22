@@ -24,7 +24,7 @@ if (startNum >= 0):
 		if (filepath[-4:] == ".png"):
 			filename = filepath[:-4-c]+"%0"+str(c)+"d.png"
 		else:
-			filename = filepath[:-4-c]+"%0"+str(c)+"d.png"
+			filename = filepath[:-4-c]+"%0"+str(c)+"d.jpg"
 		subprocess.call(["ffmpeg","-f","image2","-r","12","-start_number",str(startNum),"-i",filename,"-vcodec","libx264",filepath[:-8]+".mp4", "-y"])
 		print ("Conversion Completed Successfully! Enjoy your Video :D")
 		sleep(5)
